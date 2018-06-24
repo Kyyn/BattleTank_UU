@@ -20,9 +20,28 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CppVariables)
+	float CrossHairXLocation = 0.5f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CppVariables)
+	float CrossHairYLocation = 0.33333f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = CppVariables)
+	float LineTraceRange = 1000000;
+
 private:
 	ATank * GetControlledTank() const;
 
 	// Star the tank moving the barrel so that a shot would hit where the crosshair intersects the world
 	void AimTowardsCrosshair();
+
+	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
+
+	bool GetLookDirection(FVector2D ScreenLocation, FVector &LookDirection) const;
+
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector &HitLocation) const;
+
+
 };
