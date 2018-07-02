@@ -2,6 +2,7 @@
 
 #include "Tank.h"
 #include "Kismet/GameplayStatics.h"
+#include "TankAimingComponent.h"
 
 
 // Sets default values
